@@ -7,9 +7,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   dancer.$node = $('<span class="dancer"></span>');
 
   dancer.step = function() {
-    // the basic dancer doesn't do anything interesting at all on each step,
-    // it just schedules the next step
-    setTimeout(dancer.step, timeBetweenSteps);
+  
   };
   dancer.step();
 
@@ -29,4 +27,14 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   dancer.setPosition(top, left);
 
   return dancer;
+};
+
+Dancer.prototype.step = function() {
+    // the basic dancer doesn't do anything interesting at all on each step,
+    // it just schedules the next step
+    // setTimeout(dancer.step, timeBetweenSteps);
+};
+
+Dancer.prototype.setPosition = function(top, left) {
+
 };
