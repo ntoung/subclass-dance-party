@@ -25,3 +25,10 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.gifyDancer {
+  width: 250px;
+  height: 250px;
+  position:absolute;
+
+}
