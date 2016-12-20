@@ -21,22 +21,23 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
+  
+  position:absolute;
+}
+
+.blinkyDancer {
   border:10px solid red;
   border-radius:10px;
-  position:absolute;
 }
 
 .gifyDancer {
   width: 250px;
   height: 250px;
-  position:absolute;
-
 }
 
 .spinnyDancer {
   width: 250px;
   height: 250px;
-  position:absolute;
   -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;
   animation:spin 4s linear infinite;

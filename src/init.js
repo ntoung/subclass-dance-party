@@ -15,6 +15,7 @@ $(document).ready(function() {
      * A new object of the given type will be created and added
      * to the stage.
      */
+
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
 
     // get the maker function for the kind of dancer we're supposed to make
@@ -30,5 +31,19 @@ $(document).ready(function() {
     
     $('body').append(dancer.$node);
   });
+
+  $('#lineUpButton').on('click', function(event) {
+    console.log($('.dancer'));
+    var styleSettings = {
+      top: $("body").height()/2 - 125
+    };
+    var dancers = $('.dancer');
+    for (var i = 0; i < dancers.length; i++) {
+      console.log(dancers[i]);
+
+      $(dancers[i]).css(styleSettings);
+    }
+  });
+
 });
 
