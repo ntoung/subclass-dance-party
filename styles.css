@@ -3,7 +3,8 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background :#444 url('http://tinyurl.com/h5l9du8') no-repeat fixed center;
+  background-size: cover;
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{

@@ -24,8 +24,8 @@ $(document).ready(function() {
     // make a dancer with a random position
 
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
     
@@ -33,15 +33,15 @@ $(document).ready(function() {
   });
 
   $('#lineUpButton').on('click', function(event) {
-    console.log($('.dancer'));
-    var styleSettings = {
-      top: $("body").height()/2 - 125
-    };
     var dancers = $('.dancer');
-    for (var i = 0; i < dancers.length; i++) {
-      console.log(dancers[i]);
 
-      $(dancers[i]).css(styleSettings);
+    for (var i = 0; i < dancers.length; i++) {
+      $(dancers[i]).animate({
+        top: $('body').height() / 2 - 25,
+        left: $('body').width() / dancers.length * i
+      }, {
+        'duration': 8000
+      });
     }
   });
 
