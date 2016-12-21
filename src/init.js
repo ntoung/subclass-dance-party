@@ -29,9 +29,46 @@ $(document).ready(function() {
     );
     
     $('body').append(dancer.$node);
+    dancer.$node.on('click', function(event) {
+      $(this).remove();
+    });
+
     dancer.$node.on('mouseover', function(event) {
-      console.log(this);
-      $(this).fadeOut();
+      var restOfDancers = $('.dancer').toArray();
+      var indexOfCurrentDancer = restOfDancers.indexOf(this);
+      
+      restOfDancers.splice(indexOfCurrentDancer, 1);
+
+      var closestDancer = restOfDancers.reduce(function(acc, curr) {
+        if (calculateDistance(dancer.$node[0], acc) < calculateDistance(dancer.$node[0], curr)) {
+          return acc;
+        } else {
+          return curr;  
+        }
+      });
+
+      // get out closest dancer
+      restOfDancers.splice(restOfDancers.indexOf(closestDancer), 1);
+
+      $(restOfDancers).fadeOut();
+
+      $(this).animate({
+        top: $('body').height() / 2 - 25,
+        left: $('body').width() / 3
+      }, {
+        'duration': 4000
+      });
+
+      $(closestDancer).animate({
+        top: $('body').height() / 2 - 25,
+        left: $('body').width() / 3 * 2
+      }, {
+        'duration': 4000
+      });
+
+      console.log(closestDancer);
+      
+
     });
   });
 
@@ -47,5 +84,12 @@ $(document).ready(function() {
       });
     }
   });
+
+  var calculateDistance = function(dancerOne, dancerTwo) {
+    console.log('dancerOne');
+    return Math.sqrt(
+      Math.pow(dancerOne.x - dancerTwo.x, 2) + 
+      Math.pow(dancerOne.y - dancerTwo.y, 2));
+  };
 });
 
